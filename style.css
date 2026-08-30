@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #020611;
+  color: white;
+}
+
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 10%, #142b65 0%, transparent 30%),
+    radial-gradient(circle at 90% 80%, #24104d 0%, transparent 30%),
+    #020611;
+  display: flex;
+  flex-direction: column;
+}
+
+/* EN-TÊTE */
+
+.header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 18px;
+}
+
+.menu,
+.theme {
+  width: 45px;
+  height: 45px;
+  border: 1px solid #35558d;
+  border-radius: 50%;
+  background: #071126;
+  color: white;
+  font-size: 23px;
+}
+
+.logo-zone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-zone h1 {
+  margin: 0;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.logo-zone p {
+  margin: 4px 0 0;
+  color: #9da9c5;
+  font-size: 13px;
+}
+
+.orion-logo {
+  width: 58px;
+  height: 58px;
+  border: 2px solid #4b7cff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px #315cff;
+  transform: rotate(-25deg);
+}
+
+.orion-logo span {
+  font-size: 30px;
+  color: #70a2ff;
+}
+
+/* CHAT */
+
+.chat-zone {
+  flex: 1;
+  margin: 5px 12px;
+  padding: 15px;
+  border: 1px solid #263b60;
+  border-radius: 25px;
+  overflow-y: auto;
+  background: rgba(3, 9, 22, 0.75);
+}
+
+.date {
+  width: fit-content;
+  margin: 0 auto 20px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background: #0b1427;
+  color: #9da9c5;
+  font-size: 13px;
+}
+
+/* MESSAGES ORION */
+
+.bot-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.avatar {
+  min-width: 42px;
+  height: 42px;
+  border: 1px solid #527dff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6ea0ff;
+  box-shadow: 0 0 12px #315cff;
+}
+
+.bubble {
+  max-width: 75%;
+  padding: 15px 18px;
+  border-radius: 18px;
+  background: #111a2c;
+  color: #e9efff;
+  line-height: 1.5;
+}
+
+/* TES MESSAGES */
+
+#chat p {
+  margin: 14px 0;
+  padding: 13px 16px;
+  border-radius: 18px;
+  line-height: 1.5;
+}
+
+/* ZONE D'ÉCRITURE */
+
+.composer {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px;
+}
+
+.composer input {
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  padding: 0 16px;
+  border-radius: 28px;
+  border: 1px solid #263d66;
+  outline: none;
+  background: #071126;
+  color: white;
+  font-size: 15px;
+}
+
+.composer input::placeholder {
+  color: #77839c;
+}
+
+.composer button {
+  border: 1px solid #304d80;
+  background: #071126;
+  color: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 19px;
+}
+
+.send {
+  background: #1761e8 !important;
+  box-shadow: 0 0 15px #1761e8;
+}
+
+/* NAVIGATION */
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 5px 15px;
+  border-top: 1px solid #1b2b48;
+  background: #030916;
+}
+
+.nav-item {
+  text-align: center;
+  color: #75829c;
+}
+
+.nav-item span {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.nav-item small {
+  font-size: 11px;
+}
+
+.nav-item.active {
+  color: #4d8aff;
+  text-shadow: 0 0 10px #4d8aff;
+}

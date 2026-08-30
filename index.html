@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>ORION AI</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <header class="header">
+
+      <button class="menu">☰</button>
+
+      <div class="logo-zone">
+
+        <div class="orion-logo">
+          <span>✦</span>
+        </div>
+
+        <div>
+          <h1>ORION AI</h1>
+          <p>Ton assistant intelligent</p>
+        </div>
+
+      </div>
+
+      <button class="theme">☾</button>
+
+    </header>
+
+
+    <main class="chat-zone">
+
+      <div class="date">Aujourd’hui</div>
+
+      <div id="chat">
+
+        <div class="bot-message">
+
+          <div class="avatar">✦</div>
+
+          <div class="bubble">
+            Bonjour ! Ravi de te retrouver. 🤖
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+
+    <div class="composer">
+
+      <button class="plus">＋</button>
+
+      <input
+        id="message"
+        type="text"
+        placeholder="Écris ton message..."
+      >
+
+      <button class="mic">🎙️</button>
+
+      <button class="image">▧</button>
+
+      <button
+        class="send"
+        onclick="envoyer()"
+      >
+        ➤
+      </button>
+
+    </div>
+
+
+    <nav class="bottom-nav">
+
+      <div class="nav-item active">
+        <span>💬</span>
+        <small>Chat</small>
+      </div>
+
+      <div class="nav-item">
+        <span>📖</span>
+        <small>Devoirs</small>
+      </div>
+
+      <div class="nav-item">
+        <span>🖼️</span>
+        <small>Images</small>
+      </div>
+
+      <div class="nav-item">
+        <span>⚙️</span>
+        <small>Paramètres</small>
+      </div>
+
+    </nav>
+
+  </div>
+
+
+  <script src="./script.js"></script>
+
+</body>
+</html>
