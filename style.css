@@ -2,138 +2,165 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #030814;
+  --panel: #071226;
+  --panel2: #0b1830;
+  --border: #20385f;
+  --text: #f4f7ff;
+  --muted: #8998b5;
+  --blue: #4d8dff;
+  --blue2: #1768ee;
+  --danger: #ff5c6c;
+}
+
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: Arial, sans-serif;
-  background: #020611;
-  color: white;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
 }
 
 .app {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 20% 10%, #142b65 0%, transparent 30%),
-    radial-gradient(circle at 90% 80%, #24104d 0%, transparent 30%),
-    #020611;
   display: flex;
   flex-direction: column;
+  background:
+    radial-gradient(circle at 15% 5%, rgba(44, 96, 210, .35), transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(105, 45, 190, .25), transparent 30%),
+    var(--bg);
 }
 
-/* EN-TÊTE */
+/* HEADER */
 
 .header {
-  height: 100px;
+  height: 92px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 18px;
+  padding: 12px 16px;
 }
 
-.menu,
-.theme {
-  width: 45px;
-  height: 45px;
-  border: 1px solid #35558d;
+.icon-btn {
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background: #071126;
+  border: 1px solid var(--border);
+  background: rgba(7, 18, 38, .9);
   color: white;
-  font-size: 23px;
+  font-size: 22px;
 }
 
-.logo-zone {
+.icon-btn:active,
+.composer-btn:active,
+.send-btn:active {
+  transform: scale(.92);
+}
+
+.brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-}
-
-.logo-zone h1 {
-  margin: 0;
-  font-size: 25px;
-  letter-spacing: 2px;
-}
-
-.logo-zone p {
-  margin: 4px 0 0;
-  color: #9da9c5;
-  font-size: 13px;
+  gap: 11px;
 }
 
 .orion-logo {
-  width: 58px;
-  height: 58px;
-  border: 2px solid #4b7cff;
+  width: 55px;
+  height: 55px;
+  border: 2px solid var(--blue);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 20px #315cff;
-  transform: rotate(-25deg);
+  font-size: 29px;
+  color: #79a8ff;
+  box-shadow: 0 0 22px rgba(77, 141, 255, .7);
 }
 
-.orion-logo span {
-  font-size: 30px;
-  color: #70a2ff;
+.brand h1 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+.brand p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
 }
 
 /* CHAT */
 
 .chat-zone {
   flex: 1;
-  margin: 5px 12px;
-  padding: 15px;
-  border: 1px solid #263b60;
+  margin: 0 12px 8px;
+  padding: 16px;
+  border: 1px solid var(--border);
   border-radius: 25px;
   overflow-y: auto;
-  background: rgba(3, 9, 22, 0.75);
+  background: rgba(3, 10, 24, .72);
 }
 
-.date {
+.day-label {
   width: fit-content;
-  margin: 0 auto 20px;
-  padding: 8px 15px;
+  margin: 0 auto 22px;
+  padding: 7px 14px;
   border-radius: 20px;
-  background: #0b1427;
-  color: #9da9c5;
-  font-size: 13px;
+  background: var(--panel2);
+  color: var(--muted);
+  font-size: 12px;
 }
 
-/* MESSAGES ORION */
+/* MESSAGES */
 
-.bot-message {
+.message-row {
   display: flex;
+  gap: 9px;
+  margin: 15px 0;
+}
+
+.bot-row {
   align-items: flex-start;
-  gap: 10px;
-  margin: 18px 0;
 }
 
 .avatar {
-  min-width: 42px;
-  height: 42px;
-  border: 1px solid #527dff;
+  min-width: 40px;
+  height: 40px;
+  border: 1px solid var(--blue);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6ea0ff;
-  box-shadow: 0 0 12px #315cff;
+  color: #76a5ff;
+  box-shadow: 0 0 13px rgba(77, 141, 255, .5);
 }
 
-.bubble {
-  max-width: 75%;
-  padding: 15px 18px;
-  border-radius: 18px;
-  background: #111a2c;
-  color: #e9efff;
-  line-height: 1.5;
-}
-
-/* TES MESSAGES */
-
-#chat p {
-  margin: 14px 0;
+.message-bubble {
+  max-width: 78%;
   padding: 13px 16px;
   border-radius: 18px;
   line-height: 1.5;
+}
+
+.bot-bubble {
+  background: var(--panel2);
+  border: 1px solid #1d3357;
+}
+
+/* LES MESSAGES AJOUTÉS PAR SCRIPT */
+
+#chat p {
+  max-width: 82%;
+  margin: 14px 0;
+  padding: 13px 16px;
+  border-radius: 18px;
+  line-height: 1.45;
+  background: var(--panel2);
 }
 
 /* ZONE D'ÉCRITURE */
@@ -142,67 +169,881 @@ body {
   display: flex;
   align-items: center;
   gap: 7px;
-  padding: 12px;
+  padding: 10px 12px;
 }
 
-.composer input {
+#message {
   flex: 1;
   min-width: 0;
-  height: 52px;
-  padding: 0 16px;
-  border-radius: 28px;
-  border: 1px solid #263d66;
+  height: 50px;
+  border: 1px solid var(--border);
+  border-radius: 27px;
   outline: none;
-  background: #071126;
+  padding: 0 16px;
+  background: var(--panel);
   color: white;
-  font-size: 15px;
+  font-size: 14px;
 }
 
-.composer input::placeholder {
-  color: #77839c;
+#message::placeholder {
+  color: #71809d;
 }
 
-.composer button {
-  border: 1px solid #304d80;
-  background: #071126;
-  color: white;
+.composer-btn,
+.send-btn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 19px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: white;
+  font-size: 18px;
 }
 
-.send {
-  background: #1761e8 !important;
-  box-shadow: 0 0 15px #1761e8;
+.send-btn {
+  background: var(--blue2);
+  border-color: #3981ff;
+  box-shadow: 0 0 16px rgba(23, 104, 238, .6);
 }
 
-/* NAVIGATION */
+/* NAVIGATION BAS */
 
 .bottom-nav {
+  height: 72px;
   display: flex;
   justify-content: space-around;
-  padding: 12px 5px 15px;
-  border-top: 1px solid #1b2b48;
+  align-items: center;
+  border-top: 1px solid #172a48;
   background: #030916;
 }
 
 .nav-item {
+  border: 0;
+  background: transparent;
+  color: #74839e;
   text-align: center;
-  color: #75829c;
 }
 
 .nav-item span {
   display: block;
-  font-size: 22px;
-  margin-bottom: 4px;
+  font-size: 21px;
+  margin-bottom: 3px;
 }
 
 .nav-item small {
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .nav-item.active {
-  color: #4d8aff;
-  text-shadow: 0 0 10px #4d8aff;
+  color: var(--blue);
+}
+
+/* MENU GAUCHE */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .65);
+  z-index: 20;
+  display: none;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.sidebar {
+  position: fixed;  overflow-y: auto;
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+  z-index: 30;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 290px;
+  max-width: 85%;
+  padding: 18px 15px;
+  display: flex;
+  flex-direction: column;
+  background: #061126;
+  border-right: 1px solid var(--border);
+  transform: translateX(-105%);
+  transition: transform .25s ease;
+  box-shadow: 12px 0 35px rgba(0, 0, 0, .5);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 18px;
+}
+
+.mini-logo {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+}
+
+.close-btn {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--panel2);
+  color: white;
+  font-size: 23px;
+}
+
+.account-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0 10px;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--panel);
+}
+
+.account-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #172846;
+}
+
+.account-card strong,
+.account-card small {
+  display: block;
+}
+
+.account-card small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.menu-label {
+  margin: 20px 8px 7px;
+  color: #647594;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.menu-btn {
+  width: 100%;
+  padding: 13px;
+  margin: 3px 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  font-size: 14px;
+}
+
+.menu-btn span {
+  display: inline-block;
+  width: 30px;
+}
+
+.menu-btn:hover {
+  background: var(--panel2);
+}
+
+.sidebar-spacer {
+  flex: 1;
+}
+
+.menu-btn.danger {
+  color: var(--danger);
+}
+
+/* MENU + */
+
+.sheet {
+  position: fixed;
+  z-index: 40;
+  left: 10px;
+  right: 10px;
+  bottom: 82px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: #071329;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .6);
+  transform: translateY(130%);
+  transition: transform .25s ease;
+}
+
+.sheet.open {
+  transform: translateY(0);
+}
+
+.sheet-handle {
+  width: 40px;
+  height: 4px;
+  margin: 0 auto 14px;
+  border-radius: 5px;
+  background: #405273;
+}
+
+.sheet-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sheet-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 7px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--panel2);
+  color: white;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* MODALES */
+
+.modal {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, .72);
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 390px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: #071329;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .6);
+}
+
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modal-head h2 {
+  margin: 0;
+}
+
+.modal-head p {
+  margin: 5px 0 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #172a48;
+}
+
+.setting strong,
+.setting small {
+  display: block;
+}
+
+.setting small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.round-action {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--panel2);
+  color: white;
+}
+
+.settings-note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.google-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  margin: 5px 0 12px;
+  border-radius: 15px;
+  background: var(--panel2);
+}
+
+.google-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: white;
+  color: #4285f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.google-box strong,
+.google-box small {
+  display: block;
+}
+
+.google-box small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 14px;
+  border: 0;
+  border-radius: 13px;
+  background: white;
+  color: #222;
+  font-weight: bold;
+}
+
+/* MESSAGE INFO */
+
+.toast {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  bottom: 90px;
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  pointer-events: none;
+  padding: 11px 16px;
+  border-radius: 20px;
+  background: #111d34;
+  border: 1px solid var(--border);
+  color: white;
+  font-size: 12px;
+  transition: .25s;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* THÈME CLAIR */
+
+body.light {
+  --bg: #eef3fb;
+  --panel: #ffffff;
+  --panel2: #e6edf8;
+  --border: #c4d1e5;
+  --text: #172238;
+  --muted: #64738c;
+}
+
+body.light .app {
+  background: #eef3fb;
+}
+
+body.light .chat-zone {
+  background: rgba(255, 255, 255, .8);
+}
+
+body.light .bottom-nav {
+  background: white;
+}
+
+body.light .sidebar {
+  background: #f5f8fd;
+}
+
+body.light .sheet,
+body.light .modal-card {
+  background: white;
+}
+
+/* PETITS ÉCRANS */
+
+@media (max-width: 380px) {
+
+  .header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .brand h1 {
+    font-size: 18px;
+  }
+
+  .brand p {
+    font-size: 10px;
+  }
+
+  .orion-logo {
+    width: 47px;
+    height: 47px;
+  }
+
+  .composer {
+    gap: 4px;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .composer-btn,
+  .send-btn {
+    width: 40px;
+    height: 40px;
+  }
+}#splash {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #020817;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#splash img {
+  width: min(82vw, 420px);
+  max-height: 80vh;
+  object-fit: contain;
+  animation: orionLogoIn 1.2s ease both;
+}
+
+#splash.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes orionLogoIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}/* Petit point bleu quand ORION réfléchit */
+.orion-thinking {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  margin: 8px 0;
+}
+
+.orion-thinking span {
+  width: 8px;
+  height: 8px;
+  background: #1683ff;
+  border-radius: 50%;
+  animation: orionPulse 1.2s infinite ease-in-out;
+  box-shadow: 0 0 10px rgba(22, 131, 255, 0.7);
+}
+
+@keyframes orionPulse {
+  0%, 100% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}/* =====================================================
+   ORION AI — INTERFACE PROPRE
+   ===================================================== */
+
+/* Header plus proche d'une interface IA moderne */
+.header {
+  height: 68px;
+  padding: 10px 14px;
+}
+
+.brand {
+  gap: 8px;
+}
+
+.orion-logo {
+  width: 42px;
+  height: 42px;
+  font-size: 22px;
+  box-shadow: 0 0 15px rgba(77, 141, 255, .45);
+}
+
+.brand h1 {
+  font-size: 17px;
+  letter-spacing: 1.5px;
+}
+
+.brand p {
+  display: none;
+}
+
+/* Zone de discussion plus propre */
+.chat-zone {
+  margin: 0;
+  padding: 18px 14px 20px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* Messages ORION */
+.bot-row {
+  max-width: 100%;
+}
+
+.bot-bubble {
+  border: 0;
+  background: transparent;
+  padding: 10px 12px;
+}
+
+/* Messages utilisateur */
+.user-row {
+  justify-content: flex-end;
+}
+
+.user-bubble {
+  background: var(--blue2);
+  color: white;
+  border-radius: 20px 20px 5px 20px;
+}
+
+/* Avatar ORION plus discret */
+.avatar {
+  min-width: 34px;
+  width: 34px;
+  height: 34px;
+  font-size: 15px;
+}
+
+/* Zone d'écriture */
+.composer {
+  padding: 8px 10px 10px;
+  background: var(--bg);
+}
+
+#message {
+  height: 48px;
+  background: var(--panel);
+}
+
+/* Navigation basse plus discrète */
+.bottom-nav {
+  height: 62px;
+}
+
+.nav-item span {
+  font-size: 19px;
+}
+
+.nav-item small {
+  font-size: 9px;
+}
+
+/* Bouton + */
+#plusBtn {
+  font-size: 22px;
+  background: var(--panel2);
+}
+
+/* Panneau des actions */
+.sheet {
+  bottom: 72px;
+  left: 8px;
+  right: 8px;
+  border-radius: 20px;
+  backdrop-filter: blur(18px);
+}
+
+/* Discussions dans le menu */
+.conversation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.conversation-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 11px 10px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  font-size: 13px;
+}
+
+.conversation-item:hover,
+.conversation-item:active {
+  background: var(--panel2);
+}
+
+.conversation-item span:first-child {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.conversation-options {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Menu plus proche d'une vraie sidebar */
+.sidebar {
+  width: 300px;
+  padding: 14px 12px;
+}
+
+.sidebar-top {
+  margin-bottom: 5px;
+}
+
+.menu-label {
+  margin-top: 15px;
+}
+
+/* Boutons du menu */
+.menu-btn {
+  border-radius: 10px;
+}
+
+.menu-btn:active {
+  transform: scale(.98);
+}
+
+/* Petit écran */
+@media (max-width: 380px) {
+
+  .header {
+    height: 62px;
+  }
+
+  .orion-logo {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+
+  .brand h1 {
+    font-size: 15px;
+  }
+
+  .chat-zone {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .sidebar {
+    width: 285px;
+  }
+
+}/* =========================
+   BOUTON ORION RÉFLÉCHIT
+========================= */
+
+.thinking-text {
+  color: #4d8dff;
+  font-weight: 600;
+}
+
+.thinking-dots {
+  display: inline-flex;
+  margin-left: 4px;
+  color: #4d8dff;
+  font-weight: bold;
+}
+
+.thinking-dots span {
+  display: inline-block;
+  animation: orionThinking 1.2s infinite;
+}
+
+.thinking-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes orionThinking {
+  0%, 60%, 100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+/* Petit indicateur bleu autour de la réflexion */
+.bot-bubble:has(.thinking-text) {
+  background: rgba(77, 141, 255, 0.12);
+  border: 1px solid rgba(77, 141, 255, 0.35);
+  border-radius: 18px;
+  padding: 10px 14px;
+}/* =========================
+   LISTE DES CONVERSATIONS
+========================= */
+
+.conversation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  max-height: 280px;
+  overflow-y: auto;
+  margin: 6px 0 8px;
+}
+
+.conversation-item {
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+
+  text-align: left;
+  cursor: pointer;
+}
+
+.conversation-item:hover {
+  background: var(--panel2);
+}
+
+.conversation-item span:first-child {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.conversation-options {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 21px;
+  padding: 2px 5px;
+}
+
+.conversation-item:active {
+  transform: scale(0.98);
+}/* =========================
+   FORCER L'AFFICHAGE DES DISCUSSIONS
+========================= */
+
+.sidebar {
+  overflow-y: auto !important;
+}
+
+.conversation-list {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  min-height: 45px !important;
+  max-height: 280px !important;
+  overflow-y: auto !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  margin: 6px 0 10px !important;
+}
+
+.conversation-item {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  min-height: 44px !important;
+  box-sizing: border-box !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: var(--panel2) !important;
+  color: var(--text) !important;
+  border-radius: 12px !important;
+  padding: 10px 12px !important;
+}
+
+.conversation-item span {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.conversation-options {
+  display: block !important;
+  visibility: visible !important;
 }

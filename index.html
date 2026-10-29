@@ -1,115 +1,313 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+<head><link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
-
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ORION AI</title>
-
-  <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body><div id="splash">
+  <img
+    src="https://i.postimg.cc/mr6DC7v3/file-00000000589881f59bd5f0e3bdd914be.png"
+    alt="ORION AI"
+  >
+</div>
 
-  <div class="app">
+<div class="app">
 
-    <header class="header">
+  <header class="header">
+    <button
+  id="menuBtn"
+  class="icon-btn"
+  type="button"
+  onclick="document.getElementById('sidebar').classList.toggle('open'); document.getElementById('overlay').classList.toggle('show');"
+>
+  ☰
+    </button>
 
-      <button class="menu">☰</button>
+    <div class="brand">
+      <div class="orion-logo">✦</div>
+      <div>
+        <h1>ORION AI</h1>
+        <p>Ton assistant intelligent</p>
+      </div>
+    </div>
 
-      <div class="logo-zone">
+    <button id="themeBtn" class="icon-btn" type="button">☾</button>
+  </header>
 
-        <div class="orion-logo">
-          <span>✦</span>
-        </div>
+  <main class="chat-zone" id="chat">
+    <div class="day-label">Aujourd'hui</div>
 
-        <div>
-          <h1>ORION AI</h1>
-          <p>Ton assistant intelligent</p>
-        </div>
+    <div class="message-row bot-row">
+      <div class="avatar">✦</div>
+      <div class="message-bubble bot-bubble">
+        Bonjour ! Ravi de te retrouver. 🤖
+      </div>
+    </div>
+  </main>
 
+  <div class="composer">
+
+    <button id="plusBtn" class="composer-btn" type="button">＋</button>
+
+    <input
+      id="message"
+      type="text"
+      placeholder="Écris ton message..."
+      autocomplete="off"
+    >
+
+    <button id="micBtn" class="composer-btn" type="button">🎙️</button>
+
+    <button id="imageBtnBottom" class="composer-btn" type="button">
+      🖼️
+    </button>
+
+    <button id="sendBtn" class="send-btn" type="button">
+      ➤
+    </button>
+
+  </div>
+
+  <nav class="bottom-nav">
+
+    <button class="nav-item active" data-section="chat" type="button">
+      <span>💬</span>
+      <small>Chat</small>
+    </button>
+
+    <button class="nav-item" data-section="homework" type="button">
+      <span>📚</span>
+      <small>Devoirs</small>
+    </button>
+
+    <button class="nav-item" data-section="images" type="button">
+      <span>🖼️</span>
+      <small>Images</small>
+    </button>
+
+    <button class="nav-item" data-section="account" type="button">
+      <span>👤</span>
+      <small>Compte</small>
+    </button>
+
+  </nav>
+
+</div>
+
+
+<div id="overlay" class="overlay"></div>
+
+
+<aside id="sidebar" class="sidebar">
+
+  <div class="sidebar-top">
+    <div class="sidebar-title">
+      <div class="mini-logo">✦</div>
+      <strong>ORION AI</strong>
+    </div>
+
+    <button id="closeMenuBtn" class="close-btn" type="button">
+      ×
+    </button>
+  </div>
+
+
+  <div class="account-card">
+    <div class="account-avatar">👤</div>
+
+    <div>
+      <strong>Compte ORION</strong>
+      <small>Non connecté</small>
+    </div>
+  </div>
+
+
+  <button id="accountBtn" class="menu-btn" type="button">
+    <span>👤</span>
+    Compte / Google
+  </button>
+
+
+  <div class="menu-label">ORION</div><div class="menu-label">DISCUSSIONS</div>
+
+<div id="conversationList" class="conversation-list"></div>
+
+
+  <button id="newChatBtn" class="menu-btn" type="button">
+    <span>💬</span>
+    Nouveau chat
+  </button>
+
+
+  <button id="homeworkBtn" class="menu-btn" type="button">
+    <span>📚</span>
+    Devoirs
+  </button>
+
+
+  <button id="imageBtn" class="menu-btn" type="button">
+    <span>🖼️</span>
+    Images
+  </button>
+
+
+  <button id="settingsBtn" class="menu-btn" type="button">
+    <span>⚙️</span>
+    Paramètres
+  </button>
+
+
+  <div class="sidebar-spacer"></div>
+
+
+  <button id="disconnectBtn" class="menu-btn danger" type="button">
+    <span>🚪</span>
+    Se déconnecter
+  </button>
+
+</aside>
+
+
+<div id="actionSheet" class="sheet">
+
+  <div class="sheet-handle"></div>
+
+  <div class="sheet-head">
+    <strong>Actions ORION</strong>
+
+    <button id="closeActions" class="close-btn" type="button">
+      ×
+    </button>
+  </div>
+
+  <button id="newChatAction" class="sheet-btn" type="button">
+    💬 Nouveau chat
+  </button>
+
+  <button id="homeworkAction" class="sheet-btn" type="button">
+    📚 Aide aux devoirs
+  </button>
+
+  <button id="imageAction" class="sheet-btn" type="button">
+    🖼️ Ajouter une image
+  </button><button id="generateImageBtn" class="sheet-btn" type="button">
+  🎨 Générer une image
+</button>
+
+</div>
+
+
+<div id="settingsModal" class="modal">
+
+  <div class="modal-card">
+
+    <div class="modal-head">
+
+      <div>
+        <h2>Paramètres</h2>
+        <p>Personnalise ORION</p>
       </div>
 
-      <button class="theme">☾</button>
-
-    </header>
-
-
-    <main class="chat-zone">
-
-      <div class="date">Aujourd’hui</div>
-
-      <div id="chat">
-
-        <div class="bot-message">
-
-          <div class="avatar">✦</div>
-
-          <div class="bubble">
-            Bonjour ! Ravi de te retrouver. 🤖
-          </div>
-
-        </div>
-
-      </div>
-
-    </main>
-
-
-    <div class="composer">
-
-      <button class="plus">＋</button>
-
-      <input
-        id="message"
-        type="text"
-        placeholder="Écris ton message..."
-      >
-
-      <button class="mic">🎙️</button>
-
-      <button class="image">▧</button>
-
-      <button
-        class="send"
-        onclick="envoyer()"
-      >
-        ➤
+      <button id="closeSettings" class="close-btn" type="button">
+        ×
       </button>
 
     </div>
 
 
-    <nav class="bottom-nav">
+    <div class="setting">
 
-      <div class="nav-item active">
-        <span>💬</span>
-        <small>Chat</small>
+      <div>
+        <strong>Voix d'ORION</strong>
+        <small id="voiceStatus">Activée</small>
       </div>
 
-      <div class="nav-item">
-        <span>📖</span>
-        <small>Devoirs</small>
+      <button id="voiceToggle" class="round-action" type="button">
+        🔊
+      </button>
+
+    </div>
+
+
+    <div class="setting">
+
+      <div>
+        <strong>Conversation</strong>
+        <small>Effacer le chat actuel</small>
       </div>
 
-      <div class="nav-item">
-        <span>🖼️</span>
-        <small>Images</small>
-      </div>
+      <button id="clearChatBtn" class="round-action" type="button">
+        🗑️
+      </button>
 
-      <div class="nav-item">
-        <span>⚙️</span>
-        <small>Paramètres</small>
-      </div>
+    </div>
 
-    </nav>
+
+    <p class="settings-note">
+      Le thème se change directement avec la lune ☾ en haut à droite.
+    </p>
 
   </div>
 
+</div>
 
-  <script src="./script.js"></script>
 
-</body>
+<div id="accountModal" class="modal">
+
+  <div class="modal-card">
+
+    <div class="modal-head">
+
+      <div>
+        <h2>Compte ORION</h2>
+        <p>Connexion et profil</p>
+      </div>
+
+      <button id="closeAccount" class="close-btn" type="button">
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="google-box">
+
+      <div class="google-icon">G</div>
+
+      <div>
+        <strong>Compte Google</strong>
+        <small>Pour une vraie connexion à ORION</small>
+      </div>
+
+    </div>
+
+
+    <button id="googleLoginBtn" class="google-btn" type="button">
+      Continuer avec Google
+    </button>
+
+
+    <p class="settings-note">
+      La vraie connexion Google sera ajoutée après la configuration
+      officielle de Google Identity Services.
+    </p>
+
+  </div>
+
+</div>
+
+
+<input
+  id="imageInput"
+  type="file"
+  accept="image/*"
+  hidden
+>
+
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script></body>
 </html>
