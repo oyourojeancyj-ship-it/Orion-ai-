@@ -1,66 +1,59 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030814">
   <title>ORION AI</title>
-
   <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
 
   <div class="app">
 
     <header class="header">
-
-      <button class="menu">☰</button>
+      <button id="menuBtn" class="menu-btn">☰</button>
 
       <div class="logo-zone">
-
-        <div class="orion-logo">
-          <span>✦</span>
-        </div>
-
+        <div class="orion-logo">✦</div>
         <div>
           <h1>ORION AI</h1>
           <p>Ton assistant intelligent</p>
         </div>
-
       </div>
 
-      <button class="theme">☾</button>
-
+      <button id="themeBtn" class="theme-btn">☾</button>
     </header>
 
+    <aside id="sidebar" class="sidebar">
+      <button id="newChatBtn">＋ Nouvelle conversation</button>
+      <div id="conversationList"></div>
+    </aside>
+
+    <div id="overlay" class="overlay"></div>
 
     <main class="chat-zone">
-
-      <div class="date">Aujourd’hui</div>
+      <div class="date">Aujourd'hui</div>
 
       <div id="chat">
-
         <div class="bot-message">
-
           <div class="avatar">✦</div>
-
           <div class="bubble">
             Bonjour ! Ravi de te retrouver. 🤖
           </div>
-
         </div>
-
       </div>
-
     </main>
 
+    <div id="actionSheet" class="action-sheet">
+      <button id="homeworkBtn">📚 Aide aux devoirs</button>
+      <button id="imageBtn">🖼️ Analyser une image</button>
+      <button id="closeActionSheet">Fermer</button>
+    </div>
 
     <div class="composer">
-
-      <button class="plus">＋</button>
+      <button id="plusBtn" class="plus-btn">＋</button>
 
       <input
         id="message"
@@ -68,48 +61,22 @@
         placeholder="Écris ton message..."
       >
 
-      <button class="mic">🎙️</button>
-
-      <button class="image">▧</button>
-
-      <button
-        class="send"
-        onclick="envoyer()"
-      >
-        ➤
-      </button>
-
+      <button id="micBtn" class="mic-btn">🎙️</button>
+      <button id="sendBtn" class="send-btn" onclick="envoyer()">➤</button>
     </div>
 
+    <input id="imageInput" type="file" accept="image/*" hidden>
 
     <nav class="bottom-nav">
-
-      <div class="nav-item active">
-        <span>💬</span>
-        <small>Chat</small>
-      </div>
-
-      <div class="nav-item">
-        <span>📖</span>
-        <small>Devoirs</small>
-      </div>
-
-      <div class="nav-item">
-        <span>🖼️</span>
-        <small>Images</small>
-      </div>
-
-      <div class="nav-item">
-        <span>⚙️</span>
-        <small>Paramètres</small>
-      </div>
-
+      <button class="nav-item active">💬<small>Chat</small></button>
+      <button class="nav-item" id="homeworkNav">📖<small>Devoirs</small></button>
+      <button class="nav-item" id="imagesNav">🖼️<small>Images</small></button>
+      <button class="nav-item" id="settingsBtn">⚙️<small>Paramètres</small></button>
     </nav>
 
   </div>
 
-
   <script src="./script.js"></script>
-
 </body>
-</html>
+    </html>
+    
